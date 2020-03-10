@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<form  action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+
+<div class="form">
+  <div class="form__box">
+    <div class="form__box-title">
+      <h2>Join Today</h2>
+    </div>
+    {% include 'blog/_alerts.html' %}
+    <div class="form__input">
+      <input type="text" name="username" autocomplete="off" required />
+      <label for="" >
+        <span>Username*</span>
+      </label>
+    </div>
+    <div class="form__input">
+      <input type="password" name="password" autocomplete="off" required />
+      <label for="" >
+        <span>Password*</span>
+      </label>
+    </div>
+    <div class="form__btn">
+      <button type="submit" class="btn">Login</button>
+    </div>
+    <div class="form__link">
+      <span>Need An Account?</span>
+      <a href="{% url 'register' %}">Sign Up Now</a>
+    </div>
+    <div class="form__link">
+      <a href="{% url 'password_reset' %}">Forgot password?</a>
+    </div>
+  </div>
+  <div class="home-back">
+    <a href="{% url 'blog-home' %}"><i class="fas fa-arrow-left"></i></a>
+  </div>
+</div>
+</form> 
+
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<form method="POST">
+  {% csrf_token %}
+  <div class="form">
+    <div class="form__box">
+      <div class="form__box-title">
+        <h2>Delete</h2>
+      </div>
+      {% include 'blog/_alerts.html' %}
+
+      <div class="form-group">
+        <h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+      </div>
+
+      <div class="form__btn">
+        <button class="btn danger" type="submit">Yes, Delete</button>
+        <a href="{% url 'post-detail' object.id %}" class="btn light" >Cancel</a>
+      </div>
+    </div>
+    <div class="home-back">
+      <a href="{% url 'blog-home' %}"><i class="fas fa-arrow-left"></i></a>
+    </div>
+  </div>
+</form>
+
+
+
+{% endblock content %}

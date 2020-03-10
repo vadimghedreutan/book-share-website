@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<!-- <h1>Books by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1> -->
+<div class="cards">
+
+  {% for post in posts %}
+  <!-- Card-1 -->
+  <div class="card">
+    <a href="{% url 'post-detail' post.id %}">
+    <div class="card__content color">
+      <div class="card__content-title">
+        “{{ post.title }}”
+      </div>
+      <div class="card__content-subtitle">
+        by: {{ post.book_author }}
+      </div>
+    </div>
+    </a>
+    <div class="card__footer">
+      <div class="card__footer-item flex-end">
+        <p class="card__footer-time"><i class="fas fa-calendar-alt"></i> {{ post.date_posted|date:'F Y' }}</p>
+      </div>
+      <div class="card__footer-item">
+        <div class="card__footer-avatar">
+          <img src="{{ post.author.profile.image_profile.url }}" alt="">
+        </div>
+        <div class="card__footer-user">
+          <a href="{% url 'user-posts' post.author.username %}">
+            <span>{{ post.author }}</span>
+          </a>
+        </div>
+      </div>
+      <div class="card__footer-cover">
+        <img src="{{post.image.url}}" alt="">
+      </div>
+    </div>
+  </div><!-- End Card-1 -->
+  {% endfor %}
+  
+</div>
+
+  {% endblock content %}

@@ -1,0 +1,35 @@
+{% load static %}
+<header class='section-header'>
+  <div class="container">
+    <div class="header">
+      <div class="header__logo">
+        <a href="{% url 'blog-home' %}">
+          <img src="{% static 'img/book_log.svg' %}" alt="">
+        </a>
+      </div>
+      <div class="header__nav">
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <a href="javascript:{document.getElementById('logout').submit()}">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <form action="{% url 'logout' %}" id="logout" method="POST">
+              {% csrf_token %}
+              <input type="hidden">
+            </form>
+          </li>  
+          <li><i class="fas fa-user-alt"></i><a href="{% url 'dashboard' %}"> Profile</a></li>
+          <li><i class="fas fa-plus"></i><a href="{% url 'post-create' %}"> New book</a></li>
+          {% else %}
+          <li><i class="fas fa-sign-in-alt"></i><a href="{% url 'login' %}"> Login</a></li>
+          <li><i class="fas fa-user-plus"></i><a href="{% url 'register' %}"> Register</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="header__title">
+        <h2>Share your books. Read more...</h2>
+      </div>
+    </div>
+  </div>
+</header>

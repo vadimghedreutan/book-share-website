@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  
+<div class="details">
+  <div class="details__image">
+    <div class="details__image-cover">
+      <img src="{{ post.image.url }}" alt="">
+    </div>
+  </div>
+  <div class="details__title">
+    <div class="details__title-content">
+      <h3>{{ post.title }}</h3>
+      <p><strong>by:</strong> {{ post.book_author }} </p>
+      <p><strong>Published:</strong> {{ post.book_published }}</p>
+      
+      {% if object.author == user %}
+      <a href="{% url 'post-update' object.id %}"  class="btn" style="margin: 20px 2px 0 0;" >Update</button>
+      <a href="{% url 'post-delete' object.id %}" class="btn" style="margin: 20px 0 0 0;" >Delete</a>
+      {% endif %}
+    </div>
+    <div class="home-back">
+      <a href="{% url 'blog-home' %}"><i class="fas fa-arrow-left"></i></a>
+    </div>
+  </div>
+  <div class="details__description">
+    <p>{{ post.content|safe  }}</p>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="form">
+    <div class="form__box">
+      <div class="form__box-title">
+        <h2>Create</h2>
+      </div>
+      {% include 'blog/_alerts.html' %}
+
+      <div class="form-group">
+        {{ form|crispy }}
+        {{ form.media }}
+      </div>
+
+      <div class="form__btn">
+        <button type="submit" class="btn">Create</button>
+      </div>
+    </div>
+    <div class="home-back">
+      <a href="{% url 'blog-home' %}"><i class="fas fa-arrow-left"></i></a>
+    </div>
+  </div>
+</form> 
+
+
+{% endblock content %}
