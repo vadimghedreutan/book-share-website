@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -159,3 +160,4 @@ DROPBOX_APP_SECRET_KEY = os.getenv("DROPBOX_APP_SECRET_KEY")
 DROPBOX_OAUTH2_TOKEN = os.getenv("DROPBOX_OAUTH2_TOKEN")
 
 
+django_heroku.settings(locals())
