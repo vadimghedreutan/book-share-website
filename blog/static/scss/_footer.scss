@@ -1,0 +1,31 @@
+.section-footer {
+  padding: 2rem 0;
+  background: $primaryColor;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+
+  &__social {
+
+    ul {
+      display: flex;
+      flex-direction: row;
+
+      li {
+        margin-right: 1rem;
+
+        i {
+          font-size: 1.6rem;
+          color: $fontColor;
+          transition: all 1s;
+
+          &:hover {
+            transform: scale(2);
+          }
+        }
+      }
+    }
+  }
+}

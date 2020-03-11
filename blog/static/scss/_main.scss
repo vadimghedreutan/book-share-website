@@ -1,0 +1,129 @@
+main {
+  position: relative;
+}
+
+.section-content {
+  position: relative;
+  top: -46vh;
+  @include media('<=960px') {
+    top: -10px; 
+  }
+}
+
+.details { 
+  display: grid; 
+  grid-template-columns: 1fr 2fr;
+  padding-top: 6rem;
+  @include media('<=768px') {
+    padding-top: 4rem;
+  } 
+
+  &__image {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+    min-height: 400px;
+
+    &-cover {
+      @extend %avatar;
+      width: 300px;
+      height: 400px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &__title {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+
+    &-content {
+      @include media('<600px') {
+        background: $primaryColor;
+        padding: 0.8rem;
+      } 
+
+      h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__description {
+    grid-area: 2 / 1 / 3 / 3;
+    padding-top: 3rem;
+
+    p {
+      font-size: 1.5rem;
+      @include media('<=320px') {
+        font-size: 1.2rem;
+      } 
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 50%;
+    position: relative;
+    border-radius: 10px;
+    @include media('<=600px') {
+      width: 100%;
+    }
+  }
+
+  &__top {
+    z-index: 2;
+    position: relative;
+    width: 150px;
+    margin-bottom: 10px;
+
+    h2 {
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        background: $primaryColor;
+        height: 6px;
+        z-index: -1;
+        transition: all .2s ease-in-out;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &-image {
+      flex: 1;
+      width: 100%;
+
+      img {
+        border: 6px solid $primaryColor; 
+      }
+    }
+
+    &-info {
+      flex: 2;
+      text-align: center;
+    }
+  }
+}
