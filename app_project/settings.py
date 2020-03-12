@@ -47,6 +47,19 @@ INSTALLED_APPS = [
     'storages',
 ]
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['TextColor', 'Smiley', 'SpecialChar'],
+            ['Source'],
+        ],
+        'width': 'auto',
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
